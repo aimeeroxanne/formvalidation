@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>form validation checkpoint</title>
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <form name="welcome" onsubmit="messages();return false">
+          <label for="email">Email</label><br>
+          <input id="email" type="email" name="email"  required><br>
+          <label for="password">Password</label><br>
+          <input id="password" type="password" name="password"  minlength="8" required><br>
+          <label for="admin">Admin</label>
+          <input id="admin" type="checkbox" name="admin"><br>
+          <input id="submit" type="submit" value="Submit">
+        </form>
+        <h2 id="messages"></h2>
+
+        <!--
+      - When the form is submitted, if the "Admin" checkbox is checked but there is no password or it does not match the secretPassword, show an error
+      - If everything is correct, show a success message
+      -->
+      </div>
+    </div>
+  </div>
+  <script>
+    function messages(){
+      let success = document.getElementById('messages')
+      success.innerHTML = 'Success!'
+      return false
+    }
+  </script>
+
+</body>
+
+</html>
