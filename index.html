@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <form name="welcome" onsubmit="messages();return false">
+        <form name="welcome">
           <label for="email">Email</label><br>
           <input id="email" type="email" name="email"  required><br>
           <label for="password">Password</label><br>
@@ -21,22 +21,8 @@
           <input id="submit" type="submit" value="Submit">
         </form>
         <h2 id="messages"></h2>
-
-        <!--
-      - When the form is submitted, if the "Admin" checkbox is checked but there is no password or it does not match the secretPassword, show an error
-      - If everything is correct, show a success message
-      -->
       </div>
     </div>
   </div>
-  <script>
-    function messages(){
-      let success = document.getElementById('messages')
-      success.innerHTML = 'Success!'
-      return false
-    }
-  </script>
-
 </body>
-
 </html>

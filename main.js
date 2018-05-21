@@ -1,21 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
+  var secretPassword = 'DOMCONTENTLOADED'
+
   let welcome = document.forms['welcome']
-  let checky = document.forms['welcome']['admin']
-  let secret = document.createElement('div')
-  secret.innerHTML = `<label for="secretPassword">Secret Password</label><br><input type="password" required>`
+  let checkbox = document.forms['welcome']['admin']
+  let secret = document.createElement('input')
+  secret.setAttribute("type", "password")
+  secret.setAttribute("required", "")
 
-  function secretPassword() {
-    if (checky.checked === true) {
-      welcome.insertBefore(secret, welcome[3])
-    }
+  checkbox.addEventListener('click', function() {
+      if (checkbox.checked === true) {
+        welcome.insertBefore(secret, welcome[3])
+      }
 
-    else if (checky.checked === false){
-      welcome.removeChild(secret)
-    }
-  }
-
-  checky.addEventListener('click', function() {
-    secretPassword()
+      else if (checkbox.checked === false){
+        welcome.removeChild(secret)
+      }
   })
 
+  let submit = document.getElementById('submit')
+
+  submit.addEventListener('click', function(){
+    console.log(secret.value)
+    if(secret.value !== secretPassword){
+      event.preventDefault()
+      alert('Sorry no good')
+    }
+
+    else if(secret.value == secretPassword){
+      alert('Success')
+    }
+  })
 })
